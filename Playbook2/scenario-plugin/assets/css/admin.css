@@ -1,0 +1,233 @@
+/* Основные стили админки */
+#scenario-navigator-builder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.categories-container {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+}
+
+.sortable-list {
+    margin: 10px 0;
+}
+
+.category-item {
+    background: #f6f7f7;
+    border: 1px solid #ccd0d4;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.category-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.category-header input {
+    flex: 1;
+}
+
+.subcategories-container {
+    margin-left: 20px;
+}
+
+.subcategory-item {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.subcategory-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.subcategory-header input {
+    flex: 1;
+}
+
+.subcategory-content {
+    padding-left: 10px;
+}
+
+.scenario-page-field, .documents-container {
+    margin-bottom: 15px;
+}
+
+.documents-list {
+    margin: 10px 0;
+}
+
+.document-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.document-item select {
+    flex: 1;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.save-message {
+    padding: 5px 10px;
+}
+
+.save-message.success {
+    color: #4CAF50;
+}
+
+.save-message.error {
+    color: #F44336;
+}
+
+.loading, .empty-message {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
+
+.error {
+    color: #F44336;
+    padding: 10px;
+}
+
+/* Кнопки */
+.button {
+    padding: 5px 10px;
+    background: #f6f7f7;
+    border: 1px solid #ccd0d4;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    background: #e2e4e7;
+}
+
+.button.button-primary {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+.button.button-primary:hover {
+    background: #135e96;
+}
+
+/* Поля ввода */
+input[type="text"], select {
+    padding: 5px 10px;
+    border: 1px solid #8c8f94;
+    border-radius: 3px;
+    min-width: 200px;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #2271b1;
+    outline: none;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+/* Стили для страницы отчетов */
+#playbook-report {
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+#report-content {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+#report-content ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#report-content ul li:last-child {
+    border-bottom: none;
+}
+
+#copy-report {
+    margin-top: 10px;
+}
+
+/* Стили для страницы отчета */
+#playbook-report {
+    margin-top: 20px;
+}
+
+.report-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.report-filters select {
+    min-width: 200px;
+}
+
+#report-table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#report-table th {
+    font-weight: 600;
+}
+
+#report-table th, #report-table td {
+    padding: 8px 10px;
+    vertical-align: middle;
+}
+
+#export-csv {
+    margin-left: auto;
+}
+
+/* Стили для страницы статистики */
+.report-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+}
+
+.report-filters label {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.report-filters input[type="date"] {
+    padding: 5px 10px;
+    border: 1px solid #8c8f94;
+    border-radius: 3px;
+    height: 30px;
+}
+
+#export-stats-csv {
+    margin-left: auto;
+}

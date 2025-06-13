@@ -1,0 +1,321 @@
+/*
+Theme Name: Playbook2
+Theme URI: 
+Description: Playbook. Справочник для службы поддержки.
+Version: 2.0
+Author: Terre
+Author URI: 
+Text Domain: playbook2
+*/
+
+/* ===== Global Styles ===== */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===== Header Styles ===== */
+header {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+    width: auto;
+    margin-top: 2px;
+}
+
+.logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #0073aa;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.logo-text1 {
+    font-size: 14px;
+    color: #666;
+    line-height: 1;
+    padding-left: 12px;
+    margin-left: 50px;
+    margin-top: -5px;
+    display: block;
+}
+
+.header-search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Выравнивает содержимое к правому краю */
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 700px;
+}
+
+/* ===== Search Form Styles ===== */
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Занимает всю доступную ширину */
+    justify-content: flex-end; /* Выравнивает поле поиска вправо */
+}
+
+.search-field {
+    padding: 10px 15px;
+    padding-right: 40px; /* Оставляем место для кнопки */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 16px;
+    height: 40px; /* Фиксированная высота */
+    box-sizing: border-box;
+    transition: all 0.3s ease;     
+    width: 400px;
+}
+
+.search-field:focus {
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.2);
+}
+
+.search-submit {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    margin-left: -35px; /* Сдвигаем кнопку на поле ввода */
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.search-submit:hover {
+    color: #0073aa;
+}
+
+.search-submit svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Для мобильной версии */
+@media (max-width: 768px) {
+    .search-field {
+        width: 100%;
+        padding-right: 35px;
+    }
+    
+    .search-submit {
+        margin-left: -30px;
+    }
+}
+
+/* ===== Main Content Styles ===== */
+.main-content {
+    display: flex;
+    flex: 1;
+    max-width: 1200px;
+    margin: 20px auto;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* ===== Footer Styles ===== */
+footer {
+    background-color: white;
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Help Button & Modal Styles ===== */
+.help-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-right: 10px;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.help-button:hover,
+.help-button:focus {
+    background-color: #003d5a;
+    outline: none;
+}
+
+.about-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.about-modal.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.about-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    width: auto;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.about-modal.is-visible .about-modal-content {
+    transform: translateY(0);
+}
+
+.about-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.about-modal h2 {
+    color: #0073aa;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.about-modal p,
+.about-modal ol,
+.about-modal ul {
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+.about-modal p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .search-container {
+        width: 70%;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .logo-container {
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+    
+    .search-container {
+        margin: 15px 0;
+        max-width: 100%;
+    }
+    
+    .search-container input {
+        width: 100%;
+    }
+    
+    .logo-text1 {
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 30px 0;
+}
+
+.copyright {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
