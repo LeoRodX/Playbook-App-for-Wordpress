@@ -1,0 +1,152 @@
+/* Стили для админ-панели Плейбука */
+.wp-admin {
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #202124;
+}
+
+/* Заголовки */
+.wp-admin h1,
+.wp-admin h2,
+.wp-admin h3 {
+    color: #4285F4;
+    font-weight: 500;
+}
+
+/* Основные элементы формы */
+.wp-admin input[type="text"],
+.wp-admin input[type="password"],
+.wp-admin input[type="email"],
+.wp-admin input[type="url"],
+.wp-admin input[type="number"],
+.wp-admin textarea,
+.wp-admin select {
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
+    transition: all 0.3s ease;
+}
+
+.wp-admin input:focus,
+.wp-admin textarea:focus,
+.wp-admin select:focus {
+    border-color: #4285F4;
+    box-shadow: 0 1px 2px 0 rgba(66,133,244,0.3);
+    outline: none;
+}
+
+/* Кнопки */
+.wp-admin .button,
+.wp-admin button,
+.wp-admin input[type="button"],
+.wp-admin input[type="submit"] {
+    background: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-shadow: none;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+    transition: all 0.3s ease;
+}
+
+.wp-admin .button:hover,
+.wp-admin button:hover,
+.wp-admin input[type="button"]:hover,
+.wp-admin input[type="submit"]:hover {
+    background: #3367d6;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px 0 rgba(60,64,67,0.3);
+}
+
+/* Посты и таксономии */
+.wp-admin #poststuff .postbox {
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
+}
+
+.wp-admin #post-body-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
+}
+
+/* Метабоксы */
+.wp-admin .postbox .hndle {
+    border-bottom: 1px solid #dadce0;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Списки */
+.wp-admin .wp-list-table {
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
+}
+
+.wp-admin .wp-list-table th {
+    background: #f8f9fa;
+}
+
+.wp-admin .wp-list-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+/* Виджеты */
+.wp-admin #widgets-right .widget,
+.wp-admin .widget-inside {
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
+}
+
+/* Меню */
+.wp-admin #adminmenu {
+    background: #202124;
+}
+
+.wp-admin #adminmenu .wp-has-current-submenu .wp-submenu,
+.wp-admin #adminmenu .wp-has-current-submenu .wp-submenu.sub-open,
+.wp-admin #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
+.wp-admin #adminmenu a.wp-has-current-submenu:focus+.wp-submenu,
+.wp-admin .folded #adminmenu .wp-has-current-submenu .wp-submenu {
+    background: #2d2f33;
+}
+
+.wp-admin #adminmenu .wp-submenu {
+    background: #2d2f33;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 782px) {
+    .wp-admin #wpcontent {
+        padding-left: 0;
+    }
+    
+    .wp-admin #adminmenu {
+        width: 100%;
+    }
+    
+    .wp-admin #wpbody {
+        padding-top: 46px;
+    }
+}
+
+/* Кастомные стили для типа записи Плейбук */
+.post-type-playbook_article #titlediv {
+    margin-bottom: 20px;
+}
+
+.post-type-playbook_article #post-body-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для таксономии Категории Плейбука */
+.taxonomy-playbook_category .form-field {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
+    margin-bottom: 20px;
+}

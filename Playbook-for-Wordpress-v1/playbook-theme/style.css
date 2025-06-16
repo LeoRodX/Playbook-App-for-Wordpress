@@ -1,0 +1,338 @@
+/*
+Theme Name: Справочник Playbook
+Theme URI:
+Author: Terre
+Author URI:
+Description: Справочник документов (реализован как тема)   
+Version: 1.3
+License:
+License URI:
+Text Domain: playbook
+Tags: knowledge-base, internal, support
+*/
+
+/* Основные переменные */
+:root {
+    --primary-color: #4285F4;
+    --secondary-color: #34A853;
+    --accent-color: #EA4335;
+    --text-color: #202124;
+    --light-gray: #f8f9fa;
+    --medium-gray: #dadce0;
+    --dark-gray: #5f6368;
+    --white: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Базовые стили */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-gray);
+    margin: 0;
+}
+
+/* Хидер */
+.playbook-header {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-logo .logo-image {
+    height: 40px;
+    width: auto;
+}
+
+.header-search {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Форма поиска */
+.playbook-search-form {
+    position: relative;
+    flex: 1;
+    max-width: 600px;
+    margin: 0 20px;
+}
+
+.search-field {
+    width: 100%;
+    padding: 10px 16px 10px 46px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 24px;
+    font-size: 16px;
+    background: var(--white);
+    transition: border-color 0.3s ease;
+}
+
+.search-field:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.search-button {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Категории */
+.header-categories {
+    padding: 8px 24px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 8px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.category-tag:hover,
+.category-tag.active {
+    background: var(--light-gray);
+    font-weight: 500;
+}
+
+/* Основное содержимое */
+.playbook-main1 {
+    flex: 1; 
+    
+    max-width: 1400px;
+    margin: 5px auto;
+    padding: 0 5px;
+}
+
+/* Карточки статей */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+    margin: 5px 0;
+
+    justify-content: start;
+    width: 100%; 
+}
+
+.article-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.2s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.article-thumbnail {
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    height: 160px;
+}
+
+.article-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.article-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.article-title a:hover {
+    color: var(--primary-color);
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: var(--dark-gray);
+    margin-bottom: 12px;
+}
+
+.meta-date {
+    margin-right: 10px;
+}
+
+/* Футер */
+.playbook-footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--white);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Хелп и тултипы */
+.help-container {
+    position: relative;
+}
+
+.help-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.help-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.help-button svg {
+    display: block;
+    fill: currentColor; /* Чтобы цвет иконки наследовался от текста */
+}
+
+.help-tooltip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    width: 320px;
+    padding: 16px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+.help-button[aria-expanded="true"] + .help-tooltip,
+.help-tooltip.visible {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-top {
+        flex-wrap: wrap;
+        padding: 12px;
+    }
+       
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tooltip-content {
+    max-width: 300px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+    font-family: Arial, sans-serif;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.tooltip-title {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+
+
+.tooltip-list1 {
+    border-top: 1px solid #eaeaea;
+}
+
+.tooltip-list {
+    margin: 0 0 10px 0;
+}
+
+.tooltip-contacts {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eaeaea;
+}
+
+.contact-link {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.article-excerpt {
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0073aa;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
